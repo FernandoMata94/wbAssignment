@@ -280,10 +280,12 @@ body {
   transform: scale(0, 1);
   transition: all 0.5s ease;
   background-color: $blue;
-
   display: flex;
   justify-content: center;
   align-items: center;
+  @media screen and (max-width: $md) {
+    width: 60vw;
+  }
   h2 {
     color: $white;
     text-align: center;

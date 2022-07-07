@@ -308,6 +308,12 @@ body {
           align-items: center;
 }
 
+@media screen and (max-width: 850px) {
+  .sidemenu {
+    width: 60vw;
+  }
+}
+
 .sidemenu h2 {
   color: #ffffff;
   text-align: center;
