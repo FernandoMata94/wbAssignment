@@ -35,7 +35,7 @@
       <div class="left">
         <div class="logo">
           <a href="#section1">
-            <img src="img/gatienWhite.png">
+            <img src="img/logo.png">
           </a>
         </div>
       </div>
@@ -307,7 +307,26 @@
   </script>
   <script src="js/rellax.min.js"></script>
   <script>
-    var rellax = new Rellax('.rellax');
+    var rellax;
+
+$(document).ready(function(){
+    if ($('.rellax').length) rellax = new Rellax('.rellax');
+
+    if(window.innerWidth < 810) {
+        $('.home-content').removeClass('rellax');
+    }
+})
+
+$(window).resize(function(){
+    if(window.innerWidth < 810) {
+        rellax.destroy();
+        $('.home-content').removeClass('rellax');
+
+    } else {
+        $('.home-content').addClass('rellax');
+        rellax = new Rellax('.rellax')
+    }
+});
   </script>
 
 </body>

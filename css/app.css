@@ -465,6 +465,16 @@ body {
   margin-bottom: 150px;
 }
 
+@media screen and (max-width: 850px) {
+  .info {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    margin-bottom: 0;
+  }
+}
+
 .info .header {
   width: 600px;
 }
@@ -474,8 +484,20 @@ body {
   padding: 5.55556%;
 }
 
+@media screen and (max-width: 850px) {
+  .info .right {
+    width: 100%;
+  }
+}
+
 .info .left {
   width: 50%;
+}
+
+@media screen and (max-width: 850px) {
+  .info .left {
+    width: 100%;
+  }
 }
 
 .services1 {
@@ -494,6 +516,15 @@ body {
   background-color: #F1F1E6;
 }
 
+@media screen and (max-width: 850px) {
+  .services1 {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 .services1 .header {
   width: 350px;
 }
@@ -502,12 +533,24 @@ body {
   width: 44.44444%;
 }
 
+@media screen and (max-width: 850px) {
+  .services1 .left {
+    width: 100%;
+  }
+}
+
 .services1 h2, .services1 p {
   margin-bottom: 15px;
 }
 
 .services1 .right {
   width: 44.44444%;
+}
+
+@media screen and (max-width: 850px) {
+  .services1 .right {
+    width: 100%;
+  }
 }
 
 .services1 .right h2 {
@@ -527,6 +570,24 @@ body {
   height: 100vh;
 }
 
+@media screen and (max-width: 850px) {
+  .services2 {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .services2.right {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+}
+
 .services2.right h1 {
   margin-left: auto;
   text-align: end;
@@ -539,6 +600,12 @@ body {
 .services2 .left {
   width: 50%;
   position: relative;
+}
+
+@media screen and (max-width: 850px) {
+  .services2 .left {
+    width: 100%;
+  }
 }
 
 .services2 .left h1 {
@@ -555,6 +622,12 @@ body {
 
 .services2 .right {
   width: 50%;
+}
+
+@media screen and (max-width: 850px) {
+  .services2 .right {
+    width: 100%;
+  }
 }
 
 .services2 .right p {
