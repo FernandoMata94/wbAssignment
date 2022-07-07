@@ -1,0 +1,621 @@
+$white: #ffffff;
+$black: #000000;
+$darkgray: #1d1d1b;
+$purple: #2A8FFF;
+$violet:#F93DF9;
+$blue: #162D54;
+$beige:#F1F1E6;
+$yellow:#F7C23E;
+
+
+$transition:all .5s ease;
+
+@font-face {
+  font-family: 'bonvivant';
+  src: url("../fonts/BonVivantSerif.otf"); /* IE9 Compat Modes */
+}
+
+@font-face {
+  font-family: 'bonvivantBold';
+  src: url("../fonts/BonVivantSerif-Bold.otf"); /* IE9 Compat Modes */
+}
+
+
+
+$font-size: 16;
+$max-width: 1600px;
+
+//MEDIAS
+$max: 1600px;
+$lap: 1400px;
+$lg: 1200px;
+$md: 850px;
+$sm: 580px;
+$xs: 400px;
+
+//FUNCTIONS
+@function pxtorem($px) {
+  @return #{$px/$font-size}rem;
+}
+
+@function col($n, $t: 18) {
+  @return #{(($n * 100) / $t)}#{"%"};
+}
+
+@mixin h1($color: initial, $scale: 1) {
+  font-family: 'bonvivant', serif;
+  font-size: pxtorem(70 * $scale);
+  color: $color;
+  margin: 0;
+  font-weight: normal;
+  @media screen and (max-width: $lap) {
+    font-size: pxtorem(30 * $scale);
+  }
+  @media screen and (max-width: $md) {
+    font-size: pxtorem(28 * $scale);
+  }
+  @media screen and (max-width: $sm) {
+    font-size: pxtorem(24 * $scale);
+  }
+}
+
+h1 {
+  @include h1();
+  text-transform: uppercase;
+}
+
+@mixin h2($color: initial, $scale: 1) {
+  font-family: 'bonvivant', serif;
+  font-size: pxtorem(35 * $scale);
+  color: $color;
+  margin: 0;
+  font-weight: normal;
+  @media screen and (max-width: $lap) {
+    font-size: pxtorem(30 * $scale);
+  }
+  @media screen and (max-width: $md) {
+    font-size: pxtorem(28 * $scale);
+  }
+  @media screen and (max-width: $sm) {
+    font-size: pxtorem(24 * $scale);
+  }
+}
+
+h2 {
+  @include h2();
+}
+
+@mixin h3($color: initial, $scale: 1) {
+  font-family: museo700;
+  font-size: pxtorem(40 * $scale);
+  color: $color;
+  margin: 0;
+  font-weight: normal;
+
+  @media screen and (max-width: $md) {
+    font-size: pxtorem(28 * $scale);
+  }
+  @media screen and (max-width: $sm) {
+    font-size: pxtorem(24 * $scale);
+  }
+}
+
+h3 {
+  @include h3();
+}
+
+@mixin p($color: initial, $scale: 1) {
+  font-family: 'Raleway', sans-serif;
+  font-size: pxtorem(16 * $scale);
+  color: $color;
+  margin: 0;
+  font-weight: normal;
+  letter-spacing: 1px;
+  line-height: 2;
+  @media screen and (max-width: $md) {
+    font-size: pxtorem(16 * $scale);
+  }
+}
+
+p {
+  @include p();
+}
+
+
+
+@mixin button($bg) {
+  background: $blue;
+  font-family: "Raleway";
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: $white;
+  width: 200px;
+  padding: 10px;
+  margin: 25px auto;
+  cursor: pointer;
+  display: block;
+  text-align: center;
+  &:hover {
+    background: darken;
+    transition: all 0.3s ease;
+  }
+
+}
+
+.button {
+  @include button($purple);
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.text {
+  overflow: hidden;
+}
+
+.underline {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+
+  .underlineChild {
+    display: block;
+    width: 0;
+    height: 15px;
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    margin: auto;
+
+    z-index: -1;
+    @media screen and (max-width: $md) {
+      height: 8px;
+      bottom: 2px;
+    }
+  }
+}
+
+body {
+  margin: 0;
+  position: relative;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 100;
+  }
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  width: col(18);
+  padding:0 col(1);
+  //background-color: $blue;
+  &.scrolldown{
+    transform: translateY(0);
+  }
+  .inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: $max-width;
+    margin: auto;
+    height: 100px;
+    .left {
+      .logo {
+        width: 200px;
+      }
+    }
+    .right{
+      .burguer{
+        width: 60px;
+        height: 60px;
+        border: 1px solid $white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all .5s ease;
+        cursor: pointer;
+        &:hover{
+          transform: scale(1.1);
+          transition: all .5s ease;
+          .third{
+            width: 30px;
+          }
+        }
+        >div{
+          height: 30px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          align-items: flex-end;
+          >div{
+            width: 30px;
+            height: 1px;
+            background-color: $white;
+            &.third{
+              width: 20px;
+              transition: all .5s ease;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
+
+.responsivemenu {
+  display: none;
+  @media screen and (max-width: $md) {
+    display: block;
+  }
+}
+.sidemenu {
+  position: fixed;
+  right: 0%;
+  top: 0%;
+  z-index: 99998;
+  width: 40vw;
+  height: 100vh;
+  z-index: 99998;
+  transform-origin: right;
+  transform: scale(0, 1);
+  transition: all 0.5s ease;
+  background-color: $blue;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h2 {
+    color: $white;
+    text-align: center;
+    margin-bottom: 25px;
+    position: relative;
+    opacity: 0;
+    &::before{
+      content: "";
+      width: 0;
+      height: 2px;
+      background-color: $white;
+      display: block;
+      position: absolute;
+      left: 0;
+      bottom: 40%;
+      transition: all 0.5s ease;
+    }
+    &:hover{
+      &::before{
+        width: 100%;
+        transition: all 0.5s ease;
+      }
+    }
+  }
+  &.active {
+    transition: all 0.5s ease;
+    transform: scale(1, 1);
+    h2{
+      animation: opacity 1s ease;
+      animation-delay: .5s;
+      animation-fill-mode: forwards;
+    }
+  }
+}
+
+.cortina1{
+  width: col(18);
+  height: 100vh;
+  position: fixed;
+  background-color: $black;
+  z-index: 9999;
+  animation: cortina .8s ease-out;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+  opacity: 1;
+  transform: scaleY(1);
+  transform-origin: top;
+}
+.cortina2{
+  width: col(18);
+  height: 100vh;
+  position: fixed;
+  background-color: $blue;
+  z-index: 9998;
+  animation: cortina .8s ease-out;
+  animation-fill-mode: forwards;
+  animation-delay: 3s;
+  opacity: 1;
+  transform: scaleY(1);
+  transform-origin: top;
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 250px;
+  span{
+    width: 90px;
+    height: 3px;
+    background-color: $white;
+  }
+  &.black{
+    margin-bottom: 25px;
+    span{
+      background-color: $black;
+    }
+  }
+}
+
+.section1 {
+  width: col(18);
+  padding: col(1);
+  height: 100vh;
+  background-image: url(../img/section1.jpg);
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  @media screen and (max-width: $lap) {
+
+  }
+  @media screen and (max-width: $md) {
+
+  }
+  h1{
+    color: $white;
+    max-width: 60%;
+  }
+  p{
+    @include p($white,1.25);
+  }
+}
+
+.info{
+  width: col(18);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 150px;
+  .header{
+    width: 600px;
+  }
+  .right{
+    width: col(9);
+    padding: col(1);
+  }
+  .left{
+    width: col(9);
+  }
+}
+
+.services1{
+  width: col(18);
+  padding: col(1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 150px;
+  background-color: #F1F1E6;
+  .header{
+    width: 350px;
+  }
+  .left{
+    width: col(8);
+  }
+  h2,p{
+    margin-bottom: 15px;
+  }
+  .right{
+    width: col(8);
+    h2{
+      padding-bottom: 15px;
+      border-bottom: solid 1px black;
+    }
+  }
+}
+
+.services2{
+  width: col(18);
+  padding: col(1);
+  display: flex;
+  align-items: flex-start;
+  height: 100vh;
+  &.right{
+    h1{
+     margin-left: auto;
+     text-align: end;
+    }
+  }
+  .header{
+    width: 350px;
+  }
+  .left{
+    width: col(9);
+    position: relative;
+    h1{
+      max-width: 490px;
+    }
+    img{
+      position: absolute;
+      left: 20%;
+      top: 20%;
+      z-index: -1;
+      width: 450px;
+    }
+  }
+
+  .right{
+    width: col(9);
+    p{
+      margin-bottom: 25px;
+    }
+  }
+}
+
+.section3{
+  width: col(18);
+  padding: col(1);
+  .top{
+    display: flex;
+    justify-content: space-between;
+    //align-items: center;
+    .left{
+      width: col(8);
+     // writing-mode: vertical-lr;
+      //transform: rotate(180deg);
+      //text-orientation: mixed;
+      display: flex;
+      flex-direction: column;
+      h1{
+        @include h1($white,2);
+      }
+    }
+    .right{
+      width: col(8);
+    }
+  }
+
+
+}
+
+.slider__cont{
+  width: col(18);
+  background-color: $blue;
+  padding: col(1) 0;
+  h1{
+    margin-left: col(1);
+
+    color: $blue;
+    margin-bottom: 50px;
+  }
+  ul.slider{
+    cursor: grab;
+    padding: 0;
+    margin: 0;
+    li{
+      padding: 0 5px;
+      img{
+        width: 100%;
+      }
+    }
+  }
+}
+
+.contact{
+  background-image: url(../img/contact.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  padding: col(1);
+  width: col(18);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  form{
+    margin-top: 25px;
+    width: col(6);
+    input,textarea{
+      border: none;
+      width: 100%;
+      padding: 15px;
+    }
+  }
+}
+
+.contact__info{
+  padding: col(1);
+  background-color: $beige;
+  .cont{
+    width: 50%;
+    margin: auto;
+    display: grid;
+    gap: 25px;
+    margin-bottom: 25px;
+    grid-template-columns: repeat(2,1fr);
+    >div{
+      margin-bottom: 15px;
+      &:nth-child(even){
+        text-align: end;
+      }
+      h2{
+        margin-bottom: 15px;
+      }
+    }
+  }
+}
+
+footer{
+  width: col(18);
+  padding:25px col(1);
+  background-color: $blue;
+
+  .cont{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .social{
+      display: flex;
+      >a{
+        margin: 0 15px;
+        transition: $transition;
+        &:hover{
+          transform: scale(1.1);
+          transition: $transition;
+        }
+        .fb{
+          width: 15px;
+        }
+        .insta{
+          width: 22px;
+        }
+      }
+      img{
+        width: 25px;
+      }
+    }
+  }
+  p{
+    color: $white;
+  }
+}
+
+
+@keyframes cortina {
+  from {
+
+    transform: scaleY(1);
+  }
+  to {
+
+    transform: scaleY(0);
+  }
+}
+
+@keyframes opacity {
+  from {
+
+    opacity: 0;
+  }
+  to {
+
+    opacity: 1;
+  }
+}
