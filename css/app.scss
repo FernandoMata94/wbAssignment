@@ -353,6 +353,9 @@ body {
   justify-content: space-between;
   align-items: center;
   width: 250px;
+  @media screen and (max-width: $md) {
+    width: 100% !important;
+  }
   span{
     width: 90px;
     height: 3px;
@@ -458,6 +461,7 @@ body {
   height: 100vh;
   @media screen and (max-width: $md) {
     flex-direction: column;
+    overflow: hidden;
   }
   &.right{
     @media screen and (max-width: $md) {

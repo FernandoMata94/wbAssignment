@@ -408,6 +408,12 @@ body {
   width: 250px;
 }
 
+@media screen and (max-width: 850px) {
+  .header {
+    width: 100% !important;
+  }
+}
+
 .header span {
   width: 90px;
   height: 3px;
@@ -582,6 +588,7 @@ body {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    overflow: hidden;
   }
 }
 
