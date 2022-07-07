@@ -765,6 +765,12 @@ body {
       grid-template-columns: repeat(2, 1fr);
 }
 
+@media screen and (max-width: 850px) {
+  .contact__info .cont {
+    width: 100%;
+  }
+}
+
 .contact__info .cont > div {
   margin-bottom: 15px;
 }
