@@ -121,6 +121,7 @@ p {
 
 a {
   text-decoration: none;
+  position: relative;
 }
 
 img {
@@ -528,6 +529,30 @@ body {
   background-color: #F1F1E6;
 }
 
+.services1 a {
+  color: #162D54;
+  position: relative;
+  border-bottom: solid 1px #162D54;
+}
+
+.services1 a:before {
+  content: "";
+  width: 0px;
+  height: 1px;
+  background-color: #162D54;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.services1 a:hover::before {
+  width: 100%;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
 @media screen and (max-width: 850px) {
   .services1 {
     -webkit-box-orient: vertical;
@@ -580,6 +605,30 @@ body {
       -ms-flex-align: start;
           align-items: flex-start;
   height: 100vh;
+}
+
+.services2 a {
+  color: #162D54;
+  position: relative;
+  border-bottom: solid 1px #162D54;
+}
+
+.services2 a:before {
+  content: "";
+  width: 0px;
+  height: 1px;
+  background-color: #162D54;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.services2 a:hover::before {
+  width: 100%;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 @media screen and (max-width: 850px) {
@@ -706,6 +755,32 @@ body {
   width: 100%;
   background-color: #162D54;
   padding: 5.55556% 0;
+  position: relative;
+}
+
+.slider__cont .arrows {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100px;
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.slider__cont .arrows > div {
+  width: 100%;
+}
+
+.slider__cont .arrows .prev-slide {
+  background-color: yellow;
+  border-radius: 50% 0 0  0%;
+}
+
+.slider__cont .arrows .next-slide {
+  background-color: blue;
+  border-radius: 50% 50% 0 0;
 }
 
 .slider__cont h1 {
@@ -719,6 +794,7 @@ body {
   cursor: grab;
   padding: 0;
   margin: 0;
+  position: relative;
 }
 
 .slider__cont ul.slider li {

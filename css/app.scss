@@ -20,8 +20,6 @@ $transition:all .5s ease;
   src: url("../fonts/BonVivantSerif-Bold.otf"); /* IE9 Compat Modes */
 }
 
-
-
 $font-size: 16;
 $max-width: 1600px;
 
@@ -121,8 +119,6 @@ p {
   @include p();
 }
 
-
-
 @mixin button($bg) {
   background: $blue;
   font-family: "Raleway";
@@ -139,7 +135,6 @@ p {
     background: darken;
     transition: all 0.3s ease;
   }
-
 }
 
 .button {
@@ -148,6 +143,7 @@ p {
 
 a {
   text-decoration: none;
+  position: relative;
 }
 
 img {
@@ -426,6 +422,28 @@ body {
   justify-content: space-between;
   margin-bottom: 150px;
   background-color: #F1F1E6;
+
+  a{
+    color: $blue;
+    position: relative;
+    border-bottom: solid 1px $blue;
+    &:before{
+      content: "";
+      width: 0px;
+      height: 1px;
+      background-color: $blue;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      transition: $transition;
+    }
+    &:hover{
+      &::before{
+        width: 100%;
+        transition: $transition;
+      }
+    }
+  }
   @media screen and (max-width: $md) {
     flex-direction: column;
   }
@@ -459,6 +477,27 @@ body {
   display: flex;
   align-items: flex-start;
   height: 100vh;
+  a{
+    color: $blue;
+    position: relative;
+    border-bottom: solid 1px $blue;
+    &:before{
+      content: "";
+      width: 0px;
+      height: 1px;
+      background-color: $blue;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      transition: $transition;
+    }
+    &:hover{
+      &::before{
+        width: 100%;
+        transition: $transition;
+      }
+    }
+  }
   @media screen and (max-width: $md) {
     flex-direction: column;
     overflow: hidden;
@@ -534,9 +573,28 @@ body {
   width: col(18);
   background-color: $blue;
   padding: col(1) 0;
+  position: relative;
+  .arrows{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    >div{
+      width: 100%;
+    }
+    .prev-slide{
+      background-color: yellow;
+      border-radius:50% 0 0  0%;
+    }
+    .next-slide{
+      background-color: blue;
+      border-radius:50% 50% 0 0;
+    }
+  }
   h1{
     margin-left: col(1);
-
     color: $blue;
     margin-bottom: 50px;
   }
@@ -544,6 +602,8 @@ body {
     cursor: grab;
     padding: 0;
     margin: 0;
+    position: relative;
+
     li{
       padding: 0 5px;
       img{

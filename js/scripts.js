@@ -5,11 +5,13 @@ $('.slider').slick({
   slidesToScroll: 1,
   centerMode: true,
   fade: false,
-  arrows: false,
+  arrows: true,
   autoplay: true,
   autoplaySpeed: 2000,
   pauseOnHover: false,
   variableWidth: true,
+  prevArrow: $('.prev-slide'),
+  nextArrow: $('.next-slide'),
   responsive: [
     {
       breakpoint: 580,
