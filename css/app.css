@@ -828,6 +828,18 @@ footer .cont {
           align-items: center;
 }
 
+@media screen and (max-width: 850px) {
+  footer .cont {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  footer .cont > div {
+    margin-bottom: 15px;
+  }
+}
+
 footer .cont .social {
   display: -webkit-box;
   display: -ms-flexbox;

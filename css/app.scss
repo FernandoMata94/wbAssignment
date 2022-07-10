@@ -611,10 +611,17 @@ footer{
   width: col(18);
   padding:25px col(1);
   background-color: $blue;
+
   .cont{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @media screen and (max-width: $md) {
+      flex-direction: column;
+      >div{
+        margin-bottom: 15px;
+      }
+    }
     .social{
       display: flex;
       >a{
