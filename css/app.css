@@ -756,6 +756,12 @@ body {
   width: 33.33333%;
 }
 
+@media screen and (max-width: 850px) {
+  .contact form {
+    width: 88.88889%;
+  }
+}
+
 .contact form input, .contact form textarea {
   border: none;
   width: 100%;
@@ -781,6 +787,8 @@ body {
 @media screen and (max-width: 850px) {
   .contact__info .cont {
     width: 100%;
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
   }
 }
 
@@ -790,6 +798,12 @@ body {
 
 .contact__info .cont > div:nth-child(even) {
   text-align: end;
+}
+
+@media screen and (max-width: 850px) {
+  .contact__info .cont > div:nth-child(even) {
+    text-align: start;
+  }
 }
 
 .contact__info .cont > div h2 {

@@ -567,6 +567,9 @@ body {
   form{
     margin-top: 25px;
     width: col(6);
+    @media screen and (max-width: $md) {
+      width: col(16);
+    }
     input,textarea{
       border: none;
       width: 100%;
@@ -587,11 +590,15 @@ body {
     grid-template-columns: repeat(2,1fr);
     @media screen and (max-width: $md) {
       width: 100%;
+      grid-template-columns: repeat(1,1fr);
     }
     >div{
       margin-bottom: 15px;
       &:nth-child(even){
         text-align: end;
+        @media screen and (max-width: $md) {
+          text-align:start;
+        }
       }
       h2{
         margin-bottom: 15px;
